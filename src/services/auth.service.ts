@@ -28,7 +28,7 @@ export const createAuthUser = async (data: IAuthDocument): Promise<IAuthDocument
       'jobber-buyer-update',
       'user-buyer',
       JSON.stringify(messageDetails),
-      'Buyer details sent to buyer service'
+      'Buyer details sent to buyer service.'
     );
 
     const userData: IAuthDocument = omit(result.dataValues, ['password']) as IAuthDocument;

@@ -1,5 +1,5 @@
 import { config } from '@auth/config';
-import { checkConnection } from '@auth/elasticsearch';
+import { checkConnection, createIndex } from '@auth/elasticsearch';
 import { createConnection } from '@auth/queues/connection';
 import { appRoutes } from '@auth/routes';
 import { CustomError, IAuthPayload, IErrorResponse, winstonLogger } from '@vuphuc47edge/jobber-shared';
@@ -69,6 +69,7 @@ const startQueues = async (): Promise<void> => {
 
 const startElasticSearch = (): void => {
   checkConnection();
+  createIndex('gigs');
 };
 
 const authErrorHandler = (app: Application): void => {
